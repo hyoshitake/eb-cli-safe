@@ -1,0 +1,2 @@
+# eb-cli-safe
+evbu
