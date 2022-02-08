@@ -4,8 +4,8 @@ eb-cliを実行するときに事前にいくつか確認項目を表示して�
 # 使い方
 eb-cliが置いてあるフォルダと同じ場所にeb-safeを置いてください。
 
-[windows]
+[windows]  
 C:\Users\[User Name]\.ebcli-virtual-env\executables\
 
-[Linuxl
+[Linuxl  
 /usr/local/bin/eb
