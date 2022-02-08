@@ -15,7 +15,7 @@ if [ $1 = "ssh" ]; then
   
   # 入力データがYの時だけ元のコマンドを実行する
   if [ ${input} = "Y" ]; then
-    echo 'test';
+    eb $@
   fi
 elif [ $1 = "deploy" ]; then
   # deployコマンドの場合
@@ -40,12 +40,16 @@ elif [ $1 = "deploy" ]; then
   if [ ${input} = "Y" ]; then
     # proが入っている環境にデプロイしようとしている場合はもう一回確認する
     cursor_env=$(eb list | grep "*" | grep "pro" | head -n 1)
-    If(cursor_env != ""){
+    if [ ${cursor_env} != "" ]; then
       # 再確認
       printf "本番環境へのデプロイです。間違いないですか？(Y/n)："; read input
       if [ ${input} = "Y" ]; then
-        echo 'test';
+        eb $@
       fi
+    else
+      eb $@
     fi
   fi
-}
+else
+  eb $@
+fi
